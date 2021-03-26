@@ -2,7 +2,8 @@
 const execa = require("execa");
 const fs = require("fs");
 (async () => {
-  try {
+  try {        
+    await execa("git", ["checkout", "-f", "main"]);
     await execa("git", ["branch", "-D", "gh-pages"]);
     await execa("git", ["checkout", "--orphan", "gh-pages"]);
     // eslint-disable-next-line no-console
